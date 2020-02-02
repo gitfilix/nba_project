@@ -1,8 +1,16 @@
 import React from 'react'
 
+
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <footer>
+      <div className='flexbox-container'>
+        <div className='logo'>
+          <span></span>
+        </div>
+      Footer
+      </div>
+    </footer>
   )
 }
 
