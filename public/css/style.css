@@ -145,9 +145,13 @@ footer {
     display:none;
     color: #4CAF50;
 }
-
+.subcribe_panel .alreadyIn {
+    display:none;
+    color: #a33;
+}
 
 .subcribe_panel .error.show,
+.subcribe_panel .alreadyIn.show,
 .subcribe_panel .success.show  {
     display:block;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
 import SliderWidget from '../Utils/Slider'
+import Subscriptions from '../Utils/Subscribe'
 import  { URL_HOME } from '../Utils/paths'
 
 
@@ -24,6 +25,7 @@ class Home extends Component {
     return (
       <>
         <SliderWidget slides={this.state.home.slider} />
+        <Subscriptions />
       </>
     )
   }
