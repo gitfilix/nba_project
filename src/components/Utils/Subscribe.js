@@ -22,13 +22,46 @@ class Subscriptions extends Component {
     }, 3000)
   }
 
+  saveSubscription = (email) => {
+
+    // get email and check if its already in there
+    axios.get(`${ URL_EMAIL}?email=${email}`)
+    .then (response => {
+      if(!response.data.length) {
+
+        // post request to store emailk
+        axios(URL_EMAIL,{
+          method: 'POST',
+          headers: {
+            'Accept' : 'application/json',
+            'Content-Type' :'application/json'
+          },
+          data: JSON.stringify({email})
+        }).then( response => {
+          this.setState({
+            email: '',
+            success: true
+          })
+          this.clearMessages()
+        })
+      } else {
+        // user is already on the list
+        this.setState({
+          email: '',
+          alreadyIn: true
+        })
+        this.clearMessages()
+      }
+    })
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     let email = this.state.email
     let regex = /^\S+@\S+\.\S+$/
 
     if(regex.test(email)) {
-      // subscribe user
+      this.saveSubscription(email)
     } else {
       // trugger error
       this.setState({error: true})
