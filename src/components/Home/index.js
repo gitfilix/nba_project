@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Axios from 'axios'
 import SliderWidget from '../Utils/Slider'
 import Subscriptions from '../Utils/Subscribe'
+import Blocks from './blocks'
 import  { URL_HOME } from '../Utils/paths'
 
 
@@ -14,7 +15,8 @@ class Home extends Component {
   componentDidMount() {
     Axios.get(URL_HOME)
     .then(response => {
-      console.log('response.data', response.data);
+      console.log('response', response)
+      
       this.setState({
         home: response.data
       })
@@ -26,6 +28,7 @@ class Home extends Component {
       <>
         <SliderWidget slides={this.state.home.slider} />
         <Subscriptions />
+        <Blocks blocks={this.state.home.blocks} />
       </>
     )
   }

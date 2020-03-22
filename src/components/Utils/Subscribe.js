@@ -23,6 +23,8 @@ class Subscriptions extends Component {
   }
 
   saveSubscription = (email) => {
+    console.log('email', email)
+
 
     // get email and check if its already in there
     axios.get(`${ URL_EMAIL}?email=${email}`)
@@ -56,6 +58,7 @@ class Subscriptions extends Component {
   }
 
   handleSubmit = (event) => {
+    console.log('event', event)
     event.preventDefault();
     let email = this.state.email
     let regex = /^\S+@\S+\.\S+$/
